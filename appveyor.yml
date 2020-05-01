@@ -1,6 +1,6 @@
 environment:
   global:
-    BUILD_COMMIT: c3d95ab9b95058c2d496fa280fdec50c0511dd5d
+    BUILD_COMMIT: 00d27b9e2bdda704ae5ada5de3039fd2c1a08ec9
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
