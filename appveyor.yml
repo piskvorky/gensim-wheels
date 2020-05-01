@@ -71,9 +71,9 @@ install:
 
 
   # Install the build and runtime dependencies of the project.
-  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (IF "%PYTHON_VERSION%"=="3.8.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.17.3 scipy==1.3.2) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==1.0.0))
-  - IF "%PYTHON_VERSION%"=="2.7.12" (%CMD_IN_ENV% pip install --timeout=60 'smart_open >= 1.8.1, < 1.11') ELSE (pip install --timeout=60 smart_open)
-  - "%CMD_IN_ENV% pip install --timeout=60 pytest mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
+  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install numpy==1.14.5 scipy==1.1.0) ELSE (IF "%PYTHON_VERSION%"=="3.8.0" (%CMD_IN_ENV% pip install numpy==1.17.3 scipy==1.3.2) ELSE (%CMD_IN_ENV% pip install numpy==1.11.3 scipy==1.0.0))
+  - IF "%PYTHON_VERSION%"=="2.7.12" (%CMD_IN_ENV% pip install 'smart_open >= 1.8.1, < 1.11') ELSE (%CMD_IN_ENV% pip install smart_open)
+  - "%CMD_IN_ENV% pip install pytest mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
   - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
   - ps: "ls dist"
 
