@@ -72,7 +72,7 @@ install:
 
   # Install the build and runtime dependencies of the project.
   - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (IF "%PYTHON_VERSION%"=="3.8.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.17.3 scipy==1.3.2) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==1.0.0))
-  - "%CMD_IN_ENV% pip install --timeout=60 smart_open pytest pytest-rerunfailures mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
+  - "%CMD_IN_ENV% pip install --timeout=60 smart_open pytest mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
   - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
   - ps: "ls dist"
 
@@ -88,7 +88,7 @@ test_script:
   - "cd empty_folder"
   - "SET PYTHONHASHSEED=1"
   - "python -c \"from gensim.models.word2vec import FAST_VERSION as FV_W2V; from gensim.models.fasttext import FAST_VERSION as FV_FT; print('FAST_VERSION (word2vec): {}, FAST_VERSION (fasttext): {}'.format(FV_W2V, FV_FT)); assert FV_W2V >= 0, FV_W2V; assert FV_FT >= 0, FV_FT\""
-  - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
+  - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --pyargs gensim"
 
 
 # Upload wheels at the end of process (no matters, success or fail)
