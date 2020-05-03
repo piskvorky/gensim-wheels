@@ -1,6 +1,6 @@
 environment:
   global:
-    BUILD_COMMIT: 5b5b54592a6aaf3c0f40f162351d11d3b64c9b98
+    BUILD_COMMIT: e889fa3d45a406cabbc7e180fa9a8ee3f76ac6f0
     # SDK v7.0 MSVC Express 2008's SetEnv.cmd script will fail if the
     # /E:ON and /V:ON options are not enabled in the batch script intepreter
     # See: http://stackoverflow.com/a/13751649/163740
@@ -11,6 +11,14 @@ environment:
       secure: CKjewPPfH6vXYbZYZnF+w05yoA4HUwOcxmxnahDzT3xlB1F5kx9ng0u8mDUR++Wh
 
   matrix:
+    - PYTHON: "C:\\Python27"
+      PYTHON_VERSION: "2.7.12"
+      PYTHON_ARCH: "32"
+
+    - PYTHON: "C:\\Python27-x64"
+      PYTHON_VERSION: "2.7.12"
+      PYTHON_ARCH: "64"
+
     - PYTHON: "C:\\Python35"
       PYTHON_VERSION: "3.5.2"
       PYTHON_ARCH: "32"
@@ -63,8 +71,9 @@ install:
 
 
   # Install the build and runtime dependencies of the project.
-  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.14.5 scipy==1.1.0) ELSE (IF "%PYTHON_VERSION%"=="3.8.0" (%CMD_IN_ENV% pip install --timeout=60 numpy==1.17.3 scipy==1.3.2) ELSE (%CMD_IN_ENV% pip install --timeout=60 numpy==1.11.3 scipy==1.0.0))
-  - "%CMD_IN_ENV% pip install --timeout=60 smart_open pytest pytest-rerunfailures mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
+  - cmd: IF "%PYTHON_VERSION%"=="3.7.0" (%CMD_IN_ENV% pip install numpy==1.14.5 scipy==1.1.0) ELSE (IF "%PYTHON_VERSION%"=="3.8.0" (%CMD_IN_ENV% pip install numpy==1.17.3 scipy==1.3.2) ELSE (%CMD_IN_ENV% pip install numpy==1.11.3 scipy==1.0.0))
+  - cmd: IF "%PYTHON_VERSION%"=="2.7.12" (%CMD_IN_ENV% pip install smart_open==1.10.1) ELSE (%CMD_IN_ENV% pip install smart_open)
+  - "%CMD_IN_ENV% pip install pytest mock cython testfixtures scikit-learn Morfessor==2.0.2a4 python-Levenshtein>=0.10.2"
   - "%CMD_IN_ENV% python setup.py bdist_wheel bdist_wininst"
   - ps: "ls dist"
 
@@ -80,7 +89,7 @@ test_script:
   - "cd empty_folder"
   - "SET PYTHONHASHSEED=1"
   - "python -c \"from gensim.models.word2vec import FAST_VERSION as FV_W2V; from gensim.models.fasttext import FAST_VERSION as FV_FT; print('FAST_VERSION (word2vec): {}, FAST_VERSION (fasttext): {}'.format(FV_W2V, FV_FT)); assert FV_W2V >= 0, FV_W2V; assert FV_FT >= 0, FV_FT\""
-  - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --reruns 3 --reruns-delay 1 --pyargs gensim"
+  - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --pyargs gensim"
 
 
 # Upload wheels at the end of process (no matters, success or fail)

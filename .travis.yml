@@ -1,7 +1,7 @@
 env:
     global:
         - REPO_DIR=gensim
-        - BUILD_COMMIT=5b5b54592a6aaf3c0f40f162351d11d3b64c9b98
+        - BUILD_COMMIT=e889fa3d45a406cabbc7e180fa9a8ee3f76ac6f0
         - UNICODE_WIDTH=32
         - GLOBAL_DEPENDS="six smart_open"
         - TEST_COMMON="pytest pytest-rerunfailures mock cython testfixtures python-Levenshtein>=0.10.2 Morfessor==2.0.2a4"
@@ -18,7 +18,29 @@ dist: trusty
 services: docker
 
 jobs:
-  # Linux
+  # Linux 
+  - os: linux
+    env:
+      - MB_PYTHON_VERSION=2.7
+      - PLAT=x86_64
+
+  - os: linux
+    env:
+      - MB_PYTHON_VERSION=2.7
+      - PLAT=i686
+
+  - os: linux
+    env:
+      - MB_PYTHON_VERSION=2.7
+      - PLAT=x86_64
+      - UNICODE_WIDTH=16
+
+  - os: linux
+    env:
+      - MB_PYTHON_VERSION=2.7
+      - PLAT=i686
+      - UNICODE_WIDTH=16
+
   - os: linux
     env:
       - MB_PYTHON_VERSION=3.5
@@ -75,6 +97,12 @@ jobs:
       - SKIP_NETWORK_TESTS=1
 
   # MacOS
+  - os: osx
+    language: generic
+    env:
+      - MB_PYTHON_VERSION=2.7
+      - SKIP_NETWORK_TESTS=1
+
   - os: osx
     language: generic
     env:
