@@ -27,18 +27,7 @@ jobs:
   - os: linux
     env:
       - MB_PYTHON_VERSION=2.7
-      - PLAT=i686
-
-  - os: linux
-    env:
-      - MB_PYTHON_VERSION=2.7
       - PLAT=x86_64
-      - UNICODE_WIDTH=16
-
-  - os: linux
-    env:
-      - MB_PYTHON_VERSION=2.7
-      - PLAT=i686
       - UNICODE_WIDTH=16
 
   - os: linux
@@ -49,20 +38,8 @@ jobs:
 
   - os: linux
     env:
-      - MB_PYTHON_VERSION=3.5
-      - PLAT=i686
-      - SKIP_NETWORK_TESTS=1
-
-  - os: linux
-    env:
       - MB_PYTHON_VERSION=3.6
       - PLAT=x86_64
-
-  - os: linux
-    env:
-      - MB_PYTHON_VERSION=3.6
-      - PLAT=i686
-      - SKIP_NETWORK_TESTS=1
 
   - os: linux
     env:
@@ -72,13 +49,6 @@ jobs:
       - PLAT=x86_64
       - SKIP_NETWORK_TESTS=1
 
-  - os: linux
-    env:
-      - BUILD_DEPENDS="numpy==1.14.5 scipy==1.1.0 ${GLOBAL_DEPENDS}"
-      - TEST_DEPENDS="numpy==1.14.5 scipy==1.1.0 ${GLOBAL_DEPENDS} ${TEST_COMMON} scikit-learn"
-      - MB_PYTHON_VERSION=3.7
-      - PLAT=i686
-      - SKIP_NETWORK_TESTS=1
 
   - os: linux
     env:
@@ -88,13 +58,6 @@ jobs:
       - PLAT=x86_64
       - SKIP_NETWORK_TESTS=1
 
-  - os: linux
-    env:
-      - BUILD_DEPENDS="numpy==1.17.3 scipy==1.3.2 ${GLOBAL_DEPENDS}"
-      - TEST_DEPENDS="numpy==1.17.3 scipy==1.3.2 ${GLOBAL_DEPENDS} ${TEST_COMMON} scikit-learn"
-      - MB_PYTHON_VERSION=3.8
-      - PLAT=i686
-      - SKIP_NETWORK_TESTS=1
 
   # MacOS
   - os: osx
