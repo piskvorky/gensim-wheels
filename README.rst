@@ -1,8 +1,8 @@
-.. image:: https://travis-ci.org/MacPython/gensim-wheels.svg?branch=master
-    :target: https://travis-ci.org/MacPython/gensim-wheels
+.. image:: https://travis-ci.org/RaRe-Technologies/gensim-wheels.svg?branch=master
+    :target: https://travis-ci.org/RaRe-Technologies/gensim-wheels
     
-.. image:: https://ci.appveyor.com/api/projects/status/wurpy0gi2lp49k7w?svg=true
-    :target: https://ci.appveyor.com/project/piskvorky/gensim-wheels
+.. image:: https://ci.appveyor.com/api/projects/status/3s9c1mdhdh5wy0qx/branch/master?svg=true
+    :target: https://ci.appveyor.com/project/piskvorky/gensim-wheels-2x1bk
 
 
 ###########################
