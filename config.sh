@@ -10,7 +10,7 @@ function pre_build {
 function run_tests {
     # Runs tests on installed distribution from an empty directory
     python --version
-    if [ "$PLAT" -ne "i686" ]; then
+    if [[ "$PLAT" -ne "i686" ]]; then
         pip install "tensorflow<=1.3.0" "keras>=2.0.4"  # additional deps, available only for x64
     fi
 
