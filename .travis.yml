@@ -18,24 +18,7 @@ dist: trusty
 services: docker
 
 jobs:
-  # Linux 
-  - os: linux
-    env:
-      - MB_PYTHON_VERSION=2.7
-      - PLAT=x86_64
-
-  - os: linux
-    env:
-      - MB_PYTHON_VERSION=2.7
-      - PLAT=x86_64
-      - UNICODE_WIDTH=16
-
-  - os: linux
-    env:
-      - MB_PYTHON_VERSION=3.5
-      - PLAT=x86_64
-      - SKIP_NETWORK_TESTS=1
-
+  # Linux
   - os: linux
     env:
       - MB_PYTHON_VERSION=3.6
@@ -60,18 +43,6 @@ jobs:
 
 
   # MacOS
-  - os: osx
-    language: generic
-    env:
-      - MB_PYTHON_VERSION=2.7
-      - SKIP_NETWORK_TESTS=1
-
-  - os: osx
-    language: generic
-    env:
-      - MB_PYTHON_VERSION=3.5
-      - SKIP_NETWORK_TESTS=1
-
   - os: osx
     language: generic
     osx_image: xcode10.1
