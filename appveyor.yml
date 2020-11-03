@@ -47,7 +47,7 @@ install:
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
-  - "pip install --pre --no-index --no-dependencies --force-reinstall --find-links dist/ gensim"
+  - "pip install --pre --no-index --force-reinstall --find-links dist/ gensim"
 
 
 build: false
