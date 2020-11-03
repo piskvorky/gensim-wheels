@@ -74,6 +74,7 @@ jobs:
 
 
 before_install:
+    - x86_64-linux-gnu-gcc --version
     - source multibuild/common_utils.sh
     - source multibuild/travis_steps.sh
     - before_install
