@@ -5,8 +5,8 @@ env:
         - UNICODE_WIDTH=32
         - GLOBAL_DEPENDS="six smart_open"
         - TEST_COMMON="pytest pytest-rerunfailures mock cython testfixtures python-Levenshtein>=0.10.2 Morfessor==2.0.2a4"
-        - BUILD_DEPENDS="numpy==1.11.3 scipy==1.0.0 ${GLOBAL_DEPENDS}"
-        - TEST_DEPENDS="${BUILD_DEPENDS} ${TEST_COMMON} scikit-learn"
+        - BUILD_DEPENDS="${GLOBAL_DEPENDS}"
+        - TEST_DEPENDS="${BUILD_DEPENDS} ${TEST_COMMON}"
         - MACOSX_DEPLOYMENT_TARGET=10.9
 
 language: python
@@ -30,8 +30,8 @@ jobs:
 
   - os: linux
     env:
-      - BUILD_DEPENDS="numpy==1.14.5 scipy==1.1.0 ${GLOBAL_DEPENDS}"
-      - TEST_DEPENDS="numpy==1.14.5 scipy==1.1.0 ${GLOBAL_DEPENDS} ${TEST_COMMON} scikit-learn"
+      - BUILD_DEPENDS="${GLOBAL_DEPENDS}"
+      - TEST_DEPENDS="${GLOBAL_DEPENDS} ${TEST_COMMON}"
       - MB_PYTHON_VERSION=3.7
       - PLAT=x86_64
       - SKIP_NETWORK_TESTS=1
@@ -39,8 +39,8 @@ jobs:
 
   - os: linux
     env:
-      - BUILD_DEPENDS="numpy==1.17.3 scipy==1.3.2 ${GLOBAL_DEPENDS}"
-      - TEST_DEPENDS="numpy==1.17.3 scipy==1.3.2 ${GLOBAL_DEPENDS} ${TEST_COMMON} scikit-learn"
+      - BUILD_DEPENDS="${GLOBAL_DEPENDS}"
+      - TEST_DEPENDS="${GLOBAL_DEPENDS} ${TEST_COMMON}"
       - MB_PYTHON_VERSION=3.8
       - PLAT=x86_64
       - SKIP_NETWORK_TESTS=1
@@ -53,22 +53,21 @@ jobs:
     env:
       - MB_PYTHON_VERSION=3.6
       - SKIP_NETWORK_TESTS=1
-      # Attempt to fix 'incompatibility' between sklearn & our base numpy (by pinning sklearn to older version)
-      - TEST_DEPENDS="${BUILD_DEPENDS} ${TEST_COMMON} scikit-learn==0.21.3"
+      - TEST_DEPENDS="${BUILD_DEPENDS} ${TEST_COMMON}"
 
   - os: osx
     language: generic
     env:
-      - BUILD_DEPENDS="numpy==1.14.5 scipy==1.1.0 ${GLOBAL_DEPENDS}"
-      - TEST_DEPENDS="numpy==1.14.5 scipy==1.1.0 ${GLOBAL_DEPENDS} ${TEST_COMMON} scikit-learn"
+      - BUILD_DEPENDS="${GLOBAL_DEPENDS}"
+      - TEST_DEPENDS="${GLOBAL_DEPENDS} ${TEST_COMMON}"
       - MB_PYTHON_VERSION=3.7
       - SKIP_NETWORK_TESTS=1
 
   - os: osx
     language: generic
     env:
-      - BUILD_DEPENDS="numpy==1.17.3 scipy==1.3.2 ${GLOBAL_DEPENDS}"
-      - TEST_DEPENDS="numpy==1.17.3 scipy==1.3.2 ${GLOBAL_DEPENDS} ${TEST_COMMON} scikit-learn"
+      - BUILD_DEPENDS="${GLOBAL_DEPENDS}"
+      - TEST_DEPENDS="${GLOBAL_DEPENDS} ${TEST_COMMON}"
       - MB_PYTHON_VERSION=3.8
       - SKIP_NETWORK_TESTS=1
 
