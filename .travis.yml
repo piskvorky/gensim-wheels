@@ -73,12 +73,12 @@ script:
 after_success:
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
     - pip install wheelhouse-uploader
-    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3
+    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3 --no-enable-cdn
 
 after_failure:
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
     - pip install wheelhouse-uploader
-    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3
+    - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3 --no-enable-cdn
 
 
 notifications:

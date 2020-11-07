@@ -64,7 +64,7 @@ test_script:
 # Upload wheels at the end of process (no matters, success or fail)
 on_finish:
   - "ls -laht ../gensim/dist/"
-  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=../gensim/dist/  gensim-wheels --provider S3"
+  - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=../gensim/dist/  gensim-wheels --provider S3 --no-enable-cdn"
 
 notifications:
   - provider: Email
