@@ -14,10 +14,6 @@ function run_tests {
         pip install "tensorflow<=1.3.0" "keras>=2.0.4"  # additional deps, available only for x64
     fi
 
-    if [[ "$IS_OSX" -eq 0 ]]; then
-        pip install annoy
-    fi
-
     python -c \
 """
 from gensim.models.word2vec import FAST_VERSION as FV_W2V
