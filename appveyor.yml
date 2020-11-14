@@ -56,7 +56,7 @@ install:
 
   # Install the generated wheel package to test it
   - "pip --version"
-  - "pip install --pre --force-reinstall dist/*"
+  - "pip install --pre --force-reinstall dist/gensim-*.whl"
 
 
 build: false
