@@ -56,7 +56,7 @@ install:
 
   # Install the generated wheel package to test it
   - "pip --version"
-  - "pip install --pre --no-index --force-reinstall --find-links dist/ gensim"
+  - "pip install --pre --force-reinstall dist/*"
 
 
 build: false
