@@ -47,6 +47,7 @@ install:
   - "git checkout %BUILD_COMMIT%"
   - "git clean -fxd"
   - "git reset --hard"
+  - "python ../patch_setup.py"
 
 
   # Install the build and runtime dependencies of the project.
@@ -54,6 +55,7 @@ install:
   - ps: "ls dist"
 
   # Install the generated wheel package to test it
+  - "pip --version"
   - "pip install --pre --no-index --force-reinstall --find-links dist/ gensim"
 
 
