@@ -9,6 +9,13 @@ environment:
       secure: 5XWj5Siu0pGOPKzx6VOe/mq23+9vbvzBsAA+UFvtFvw=
     WHEELHOUSE_UPLOADER_SECRET:
       secure: CKjewPPfH6vXYbZYZnF+w05yoA4HUwOcxmxnahDzT3xlB1F5kx9ng0u8mDUR++Wh
+    #
+    # The contents of this file mirror the linux_testenv list
+    # in gensim's setup.py.  I can't think of a better way to include
+    # them here for now.  They'll get picked up by the multibuild stuff
+    # running in multibuild/common_utils.sh.
+    #
+    TEST_DEPENDS: test-depends.txt
 
   matrix:
     - PYTHON: "C:\\Python36-x64"

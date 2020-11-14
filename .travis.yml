@@ -4,6 +4,13 @@ env:
         - BUILD_COMMIT=4.0.0beta
         - UNICODE_WIDTH=32
         - MACOSX_DEPLOYMENT_TARGET=10.9
+        #
+        # The contents of this file mirror the linux_testenv list
+        # in gensim's setup.py.  I can't think of a better way to include
+        # them here for now.  They'll get picked up by the multibuild stuff
+        # running in multibuild/common_utils.sh.
+        #
+        - TEST_DEPENDS=test-depends.txt
 
 language: python
 os: linux
