@@ -21,14 +21,17 @@ environment:
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6.0"
       PYTHON_ARCH: "64"
+      WHEEL_FILENAME: "gensim-4.0.0b0-cp36-cp36m-win_amd64.whl"
 
     - PYTHON: "C:\\Python37-x64"
       PYTHON_VERSION: "3.7.0"
       PYTHON_ARCH: "64"
+      WHEEL_FILENAME: "gensim-4.0.0b0-cp36-cp37m-win_amd64.whl"
 
     - PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.0"
       PYTHON_ARCH: "64"
+      WHEEL_FILENAME: "gensim-4.0.0b0-cp36-cp38m-win_amd64.whl"
 
 
 matrix:
@@ -54,7 +57,7 @@ install:
 
   # Install the generated wheel package to test it
   - "pip --version"
-  - "pip install --pre --force-reinstall dist/*"
+  - "pip install --pre --force-reinstall dist/%WHEEL_FILENAME%"
 
 
 build: false
@@ -64,7 +67,6 @@ test_script:
   - "mkdir empty_folder"
   - "cd empty_folder"
   - "SET PYTHONHASHSEED=1"
-  - "python -c \"from gensim.models.word2vec import FAST_VERSION as FV_W2V; from gensim.models.fasttext import FAST_VERSION as FV_FT; print('FAST_VERSION (word2vec): {}, FAST_VERSION (fasttext): {}'.format(FV_W2V, FV_FT)); assert FV_W2V >= 0, FV_W2V; assert FV_FT >= 0, FV_FT\""
   - "pytest -rfxEXs --durations=20 --disable-warnings --showlocals --pyargs gensim"
 
 
