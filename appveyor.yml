@@ -36,7 +36,7 @@ environment:
     - PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.0"
       PYTHON_ARCH: "64"
-      WHEEL_FILENAME: "gensim-4.0.0b0-cp38-cp38m-win_amd64.whl"
+      WHEEL_FILENAME: "gensim-4.0.0b0-cp38-cp38-win_amd64.whl"
 
 
 matrix:
