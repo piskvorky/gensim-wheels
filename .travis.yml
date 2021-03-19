@@ -1,7 +1,7 @@
 env:
     global:
         - REPO_DIR=gensim
-        - BUILD_COMMIT=4.0.0beta
+        - BUILD_COMMIT=4.0.0.rc1
         - UNICODE_WIDTH=32
         - MACOSX_DEPLOYMENT_TARGET=10.9
         #
