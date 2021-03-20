@@ -21,22 +21,14 @@ environment:
     - PYTHON: "C:\\Python36-x64"
       PYTHON_VERSION: "3.6.0"
       PYTHON_ARCH: "64"
-      #
-      # Defining these explicitly is not ideal, because we have to update
-      # them for each new version, but I'm in a rush to get this build working,
-      # and this is the fastest way to get there.
-      #
-      WHEEL_FILENAME: "gensim-4.0.0b0-cp36-cp36m-win_amd64.whl"
 
     - PYTHON: "C:\\Python37-x64"
       PYTHON_VERSION: "3.7.0"
       PYTHON_ARCH: "64"
-      WHEEL_FILENAME: "gensim-4.0.0b0-cp37-cp37m-win_amd64.whl"
 
     - PYTHON: "C:\\Python38-x64"
       PYTHON_VERSION: "3.8.0"
       PYTHON_ARCH: "64"
-      WHEEL_FILENAME: "gensim-4.0.0b0-cp38-cp38-win_amd64.whl"
 
 
 matrix:
@@ -62,7 +54,7 @@ install:
 
   # Install the generated wheel package to test it
   - "pip --version"
-  - "pip install --pre --force-reinstall dist/%WHEEL_FILENAME%"
+  - "python ../install_wheel.py"
 
 
 build: false
