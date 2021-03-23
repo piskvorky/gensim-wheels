@@ -22,7 +22,7 @@ environment:
     #
     # https://github.com/RaRe-Technologies/gensim/issues/3085
     #
-    BUILD_DEPENDS: "numpy==1.18.0"
+    BUILD_DEPENDS: "oldest-supported-numpy"
 
   matrix:
     - PYTHON: "C:\\Python36-x64"

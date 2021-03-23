@@ -17,7 +17,7 @@ env:
         #
         # https://github.com/RaRe-Technologies/gensim/issues/3085
         #
-        - BUILD_DEPENDS="numpy==1.18.0"
+        - BUILD_DEPENDS="oldest-supported-numpy"
 
 language: python
 os: linux
