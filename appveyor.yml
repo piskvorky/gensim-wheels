@@ -16,6 +16,13 @@ environment:
     # running in multibuild/common_utils.sh.
     #
     TEST_DEPENDS: "pytest mock cython nmslib pyemd testfixtures Morfessor==2.0.2a4 python-Levenshtein>=0.10.2 scikit-learn"
+    #
+    # Build wheels with the oldest possible numpy version to avoid
+    # the problem encountered by:
+    #
+    # https://github.com/RaRe-Technologies/gensim/issues/3085
+    #
+    BUILD_DEPENDS: "numpy==1.11.3"
 
   matrix:
     - PYTHON: "C:\\Python36-x64"
