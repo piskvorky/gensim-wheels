@@ -10,10 +10,14 @@ environment:
     WHEELHOUSE_UPLOADER_SECRET:
       secure: CKjewPPfH6vXYbZYZnF+w05yoA4HUwOcxmxnahDzT3xlB1F5kx9ng0u8mDUR++Wh
     #
+    # We call these variables BUILD_DEPENDS and TEST_DEPENDS to mimick the
+    # multibuild setup on Travis. Unlike with Travis, there are no bash scripts
+    # that expect those variables - we use them directly in this YAML file and
+    # that's it.
+    #
     # The contents of this file mirror the linux_testenv list
     # in gensim's setup.py.  I can't think of a better way to include
-    # them here for now.  They'll get picked up by the multibuild stuff
-    # running in multibuild/common_utils.sh.
+    # them here for now.
     #
     TEST_DEPENDS: "pytest mock cython nmslib pyemd testfixtures Morfessor==2.0.2a4 python-Levenshtein>=0.10.2 scikit-learn"
     #
@@ -44,7 +48,7 @@ matrix:
 
 install:
   - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
-  - "python -m pip install -U pip setuptools wheel wheelhouse_uploader"
+  - "python -m pip install -U pip setuptools wheel wheelhouse_uploader %BUILD_DEPENDS%"
 
   # Check that we have the expected version and architecture for Python
   - "python --version"
