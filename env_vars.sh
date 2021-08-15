@@ -1,1 +1,1 @@
-CFLAGS=-Wl,-strip-all,-std=c99
+CFLAGS="-Wl -strip-all -std=c99"
