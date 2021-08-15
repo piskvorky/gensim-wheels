@@ -83,9 +83,3 @@ test_script:
 on_finish:
   - "ls -laht ../gensim/dist/"
   - "python -m wheelhouse_uploader upload --no-ssl-check --local-folder=../gensim/dist/  gensim-wheels --provider S3 --no-enable-cdn"
-
-notifications:
-  - provider: Email
-    to: penkov+gensimwheels@pm.me
-    on_build_success: true
-    on_build_failure: true
