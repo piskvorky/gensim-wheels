@@ -19,12 +19,6 @@ env:
         #
         - BUILD_DEPENDS="oldest-supported-numpy"
 
-        #
-        # We need this for Linux builds, but it won't hurt to have this
-        # consistently set both for Linux and MacOS.
-        #
-        - CFLAGS=-std=c99
-
 language: python
 os: linux
 
