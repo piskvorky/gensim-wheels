@@ -19,6 +19,12 @@ env:
         #
         - BUILD_DEPENDS="oldest-supported-numpy"
 
+        #
+        # We need this for Linux builds, but it won't hurt to have this
+        # consistently set both for Linux and MacOS.
+        #
+        - CFLAGS=-std=c99
+
 language: python
 os: linux
 
@@ -93,10 +99,3 @@ after_failure:
     - ls -laht ${TRAVIS_BUILD_DIR}/wheelhouse/
     - pip install wheelhouse-uploader
     - python -m wheelhouse_uploader upload --local-folder ${TRAVIS_BUILD_DIR}/wheelhouse/ --no-ssl-check gensim-wheels --provider S3 --no-enable-cdn
-
-
-notifications:
-  email:
-    - penkov+gensimwheels@pm.me
-  on_success: always
-  on_failure: always
