@@ -34,11 +34,13 @@ jobs:
     env:
       - MB_PYTHON_VERSION=3.6
       - PLAT=x86_64
+      - MB_ML_VER=2010
 
   - os: linux
     env:
       - MB_PYTHON_VERSION=3.7
       - PLAT=x86_64
+      - MB_ML_VER=2010
       - SKIP_NETWORK_TESTS=1
 
 
@@ -46,6 +48,7 @@ jobs:
     env:
       - MB_PYTHON_VERSION=3.8
       - PLAT=x86_64
+      - MB_ML_VER=2010
       - SKIP_NETWORK_TESTS=1
 
 
