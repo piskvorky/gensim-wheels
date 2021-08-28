@@ -29,21 +29,26 @@ environment:
     BUILD_DEPENDS: "oldest-supported-numpy"
 
   matrix:
-    - PYTHON: "C:\\Python36-x64"
-      PYTHON_VERSION: "3.6.0"
-      PYTHON_ARCH: "64"
-
-    - PYTHON: "C:\\Python37-x64"
-      PYTHON_VERSION: "3.7.0"
-      PYTHON_ARCH: "64"
-
-    - PYTHON: "C:\\Python38-x64"
-      PYTHON_VERSION: "3.8.0"
-      PYTHON_ARCH: "64"
+    #   - PYTHON: "C:\\Python36-x64"
+    #     PYTHON_VERSION: "3.6.0"
+    #     PYTHON_ARCH: "64"
+    #
+    #   - PYTHON: "C:\\Python37-x64"
+    #     PYTHON_VERSION: "3.7.0"
+    #     PYTHON_ARCH: "64"
+    #
+    #   - PYTHON: "C:\\Python38-x64"
+    #     PYTHON_VERSION: "3.8.0"
+    #     PYTHON_ARCH: "64"
 
     - PYTHON: "C:\\Python39-x64"
       PYTHON_VERSION: "3.9.1"
       PYTHON_ARCH: "64"
+      #
+      # I'm unable to install oldest-supported-numpy for Py3.9 on Windows for
+      # some unknown reason, so we specify the numpy version manually here.
+      #
+      BUILD_DEPENDS: "numpy==1.19.3"
 
 
 install:
