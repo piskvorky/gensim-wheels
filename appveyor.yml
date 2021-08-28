@@ -53,10 +53,10 @@ environment:
 
 install:
   # Check that we have the expected version and architecture for Python
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python --version"
   - "python -c \"import struct; print(struct.calcsize('P') * 8)\""
 
-  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
   - "python -m pip install -U pip setuptools wheel wheelhouse_uploader %BUILD_DEPENDS%"
 
   - "git submodule update --init --recursive"
