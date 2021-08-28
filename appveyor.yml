@@ -1,3 +1,4 @@
+image: Visual Studio 2019
 environment:
   global:
     BUILD_COMMIT: 4.1.0
